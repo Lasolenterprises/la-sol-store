@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop 100% Kona Coffee | Lā Sol Enterprises</title>
+<meta name="description" content="Order 100% Kona coffee, whole bean, 12 oz — roasted and shipped from Oʻahu, Hawaiʻi.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="logo">
+      <span class="sun"></span>
+      <span>Lā Sol Enterprises<span class="sub">100% Kona Coffee</span></span>
+    </a>
+    <button class="menu-toggle" onclick="toggleMobileNav()">☰</button>
+    <nav id="main-nav">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="about.html">Our Story</a>
+      <a href="contact.html">Contact</a>
+      <a href="cart.html" class="nav-cart">🛒 Cart <span class="cart-count">0</span></a>
+    </nav>
+  </div>
+</header>
+
+<section style="padding-top:56px;">
+  <div class="container">
+    <div class="product-hero">
+      <div class="product-image">
+        <div class="bag"></div>
+      </div>
+      <div class="product-details">
+        <span class="badge">100% Kona · Single Origin</span>
+        <h1>100% Kona Coffee — Whole Bean</h1>
+        <p style="color:var(--brown-light);">Medium roast, single-origin 100% Kona coffee grown on the Big Island and roasted fresh in Hawaiʻi. Smooth, low-acid, with notes of brown sugar and stone fruit.</p>
+
+        <div class="price">$38.99 <span class="unit">/ 12 oz bag</span></div>
+        <div class="stock">✓ In stock — ships within 2 business days</div>
+
+        <div class="qty-row">
+          <label style="margin:0;">Quantity</label>
+          <div class="qty-control">
+            <button type="button" onclick="stepQty(-1)">−</button>
+            <input type="text" id="shop-qty" readonly value="1">
+            <button type="button" onclick="stepQty(1)">+</button>
+          </div>
+        </div>
+
+        <button class="btn btn-primary btn-block" onclick="addProductToCart()">Add to Cart</button>
+
+        <ul class="detail-list">
+          <li>Roast: Medium</li>
+          <li>Format: Whole bean (grind-on-demand available on request)</li>
+          <li>Size: 12 oz (340 g)</li>
+          <li>Origin: Kona districts, Hawaiʻi Island</li>
+          <li>Ships locally on Oʻahu, across the U.S., and internationally</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>Lā Sol Enterprises</h4>
+        <p>Premium 100% Kona coffee, based on Oʻahu, Hawaiʻi. Sold locally and shipped worldwide.</p>
+      </div>
+      <div>
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="shop.html">100% Kona Coffee</a></li>
+          <li><a href="cart.html">Your Cart</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">Our Story</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 Lā Sol Enterprises. All rights reserved. Oʻahu, Hawaiʻi.</div>
+  </div>
+</footer>
+
+<script src="js/cart.js"></script>
+<script>
+  function stepQty(delta) {
+    const input = document.getElementById("shop-qty");
+    let val = parseInt(input.value, 10) + delta;
+    if (val < 1) val = 1;
+    input.value = val;
+  }
+  function addProductToCart() {
+    const qty = parseInt(document.getElementById("shop-qty").value, 10);
+    addToCart("kona-12oz", qty);
+  }
+</script>
+</body>
+</html>
